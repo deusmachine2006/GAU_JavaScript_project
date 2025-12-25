@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ka">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Aversi Replica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script src="script.js"></script>
+    <div class="container">
+
+        <aside class="sidebar">
+            <img src="https://www.aversi.ge/images/logo.png" alt="">
+
+            <nav>
+                <a href="index.html" data-key="nav_home">მთავარი</a>
+                <a href="#" data-key="nav_info">ძირითადი ინფორმაცია</a>
+                <a href="#" data-key="nav_contact">კონტაქტი</a>
+                <a href="#" class="highlight" data-key="nav_promos">მიმდინარე აქციები %</a>
+                <a href="#" data-key="nav_auth">ავტორიზაცია</a>
+                <a href="registration.html" data-key="nav_reg">რეგისტრაცია</a>
+                <a href="#" data-key="nav_brands">ბრენდები</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-search">
+                    <input type="text" data-key-placeholder="search_news_ph" placeholder="სიახლეების ძიება">
+                    <button type="submit">🔍</button>
+                </div>
+
+                <a href="#" class="news-archive">
+                    <span data-key="news_archive">სიახლეების არქივი</span> <span class="calendar-icon">📅</span>
+                </a>
+
+                <hr class="sidebar-divider">
+
+                <div class="lang-switcher">
+                    <img src="https://flagpedia.net/data/flags/mini/ge.png" onclick="setLanguage('ka')" alt="GE"
+                        style="cursor:pointer">
+                    <img src="https://flagpedia.net/data/flags/mini/gb.png" onclick="setLanguage('en')" alt="EN"
+                        style="cursor:pointer">
+                    <img src="https://flagpedia.net/data/flags/mini/ru.png" onclick="setLanguage('ru')" alt="RU"
+                        style="cursor: pointer; height: 20px;">
+                </div>
+
+                <div class="sidebar-contact">
+                    <p><span class="icon">📞</span> 2-900-800</p>
+                    <p><span class="icon">✉️</span> info@aversi.ge</p>
+                </div>
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/AversiPharma">f</a>
+                    <a href="https://www.youtube.com/user/AversiPharma">You</a>
+                    <a href="https://www.instagram.com/aversipharma/">Insta</a>
+                    <a href="https://ge.linkedin.com/company/aversi-pharma">in</a>
+                    <a href="#">♪</a>
+                    <a href="#">🔊</a>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <section class="hero-slider">
+                <div class="slides-container">
+                    <div class="slide active"><img src="slider.png"></div>
+                    <div class="slide"><img src="slider2.png"></div>
+                    <div class="slide"><img src="slider3.png"></div>
+                </div>
+
+                <button class="slider-arrow prev" id="prevBtn">❮</button>
+                <button class="slider-arrow next" id="nextBtn">❯</button>
+
+                <div class="slider-dots">
+                    <span class="dot active" onclick="goToSlide(0)"></span>
+                    <span class="dot" onclick="goToSlide(1)"></span>
+                    <span class="dot" onclick="goToSlide(2)"></span>
+                </div>
+            </section>
+
+            <div class="content-grid">
+                <div class="bigleft">
+                    <h3 data-key="search_title">პროდუქციის ძიება</h3>
+                    <input type="text" data-key-placeholder="search_prod_ph" placeholder="პროდუქტის დასახელება">
+                </div>
+
+                <div class="middle">
+                    <div class="small red cart-box">
+                        <img src="shopping.png" alt=""> <span data-key="grid_delivery">ადგილზე მიტანა</span>
+                    </div>
+                    <div class="small">
+                        <img src="health-insurance.png" alt=""> <span data-key="grid_shelf">სააფთიაქო თარო</span>
+                    </div>
+                    <div class="small">
+                        <img src="shopping-bag.png" alt=""> <span data-key="grid_products">პროდუქცია</span>
+                    </div>
+                    <div class="small">
+                        <img src="gps.png" alt=""> <span data-key="grid_map">აფთიაქების რუკა</span>
+                    </div>
+                </div>
+
+                <div class="bigright">
+                    <h3 data-key="card_box_title">მტრედი ბარათი</h3>
+                    <input type="text" data-key-placeholder="card_id_ph" placeholder="პირადი ნომერი">
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <section class="aversi-stats">
+        <h2 class="stats-main-title" data-key="stats_title">ავერსის წარმატება</h2>
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="circle-ring">
+                    <div class="circle-content"><img src="aversimrgval.png" alt="Icon"></div>
+                </div>
+                <div class="stat-value">31</div>
+                <div class="stat-desc" data-key="stat_exp">წლიანი გამოცდილება</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="circle-ring">
+                    <div class="circle-content"><img src="saxlimrgvali.png" alt="Icon"></div>
+                </div>
+                <div class="stat-value">366</div>
+                <div class="stat-desc" data-key="stat_pharm">აფთიაქი</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="circle-ring">
+                    <div class="circle-content"><img src="xalximrgvalshi.png" alt="Icon"></div>
+                </div>
+                <div class="stat-value">12100</div>
+                <div class="stat-desc" data-key="stat_staff">თანამშრომელი</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="circle-ring">
+                    <div class="circle-content"><img src="mtredimgrvalshi.png" alt="Icon"></div>
+                </div>
+                <div class="stat-value">2593789</div>
+                <div class="stat-desc" data-key="stat_cust">ერთგული მომხმარებელი</div>
+            </div>
+        </div>
+
+        <h1 class="promo-title" data-key="promo_section_title">აქციები</h1>
+        <section class="aversi-promos">
+            <div class="promo-outer-wrapper">
+                <button class="nav-arrow left" id="prevCardBtn">❮</button>
+
+                <div class="promo-window">
+                    <div class="promo-track" id="promoTrack">
+                        <div class="promo-card">
+                            <div class="card-img-box"><img src="Screenshot_1.png"></div>
+                            <p class="card-text" data-key="p_card_1">ისარგებლეთ საუკეთესო შეთავაზებით ჩიკოს ეტლის...</p>
+                            <a href="#" class="card-link" data-key="p_view_more">იხილეთ ვრცლად »</a>
+                        </div>
+                        <div class="promo-card">
+                            <div class="card-img-box"><img src="Screenshot_2.png"></div>
+                            <p class="card-text" data-key="p_card_2">მოემზადე და ისარგებლე აპრილის აქციით...</p>
+                            <a href="#" class="card-link" data-key="p_view_more">იხილეთ ვრცლად »</a>
+                        </div>
+                        <div class="promo-card">
+                            <div class="card-img-box"><img src="Screenshot_3.png"></div>
+                            <p class="card-text" data-key="p_card_3">ავერსში ომბიეს სრულ ასორტიმენტზე -50%...</p>
+                            <a href="#" class="card-link" data-key="p_view_more">იხილეთ ვრცლად »</a>
+                        </div>
+                        <div class="promo-card">
+                            <div class="card-img-box"><img src="Screenshot_4.png"></div>
+                            <p class="card-text" data-key="p_card_4">ახალი კოლექცია უკვე ხელმისაწვდომია...</p>
+                            <a href="#" class="card-link" data-key="p_view_more">იხილეთ ვრცლად »</a>
+                        </div>
+                        <div class="promo-card">
+                            <div class="card-img-box"><img src="Screenshot_5.png"></div>
+                            <p class="card-text" data-key="p_card_5">სპეციალური ფასდაკლება შაბათ-კვირას...</p>
+                            <a href="#" class="card-link" data-key="p_view_more">იხილეთ ვრცლად »</a>
+                        </div>
+                        <div class="promo-card">
+                            <div class="card-img-box"><img src="Screenshot_6.png"></div>
+                            <p class="card-text" data-key="p_card_6">დააგროვეთ მეტი ქულა მტრედი ბარათით...</p>
+                            <a href="#" class="card-link" data-key="p_view_more">იხილეთ ვრცლად »</a>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="nav-arrow right" id="nextCardBtn">❯</button>
+            </div>
+
+            <div class="promo-controls">
+                <div class="promo-pagination">
+                    <span class="p-dot active"></span>
+                    <span class="p-dot"></span>
+                </div>
+                <button class="view-all-btn" data-key="view_all_promos">იხილეთ ყველა აქცია</button>
+            </div>
+        </section>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2 class="section-title" data-key="contact_title">კონტაქტი</h2>
+
+        <div class="contact-container">
+            <div class="map-box">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2977.126584285743!2d44.77332357657256!3d41.73832047466504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x404472d93e185857%3A0x6335193910f1359c!2s148%20Davit%20Aghmashenebeli%20Ave%2C%20T'bilisi!5e0!3m2!1sen!2sge!4v1715600000000!5m2!1sen!2sge"
+                    width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="contact-form-box">
+                <h3 data-key="form_title">მოგვწერეთ შეტყობინება</h3>
+                <form class="contact-form">
+                    <div class="form-row">
+                        <input type="text" data-key-placeholder="f_name" placeholder="სახელი *" required>
+                        <input type="email" data-key-placeholder="f_email" placeholder="ელ-ფოსტა *" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="text" data-key-placeholder="f_subject" placeholder="სათაური">
+                        <input type="tel" data-key-placeholder="f_phone" placeholder="ტელეფონი *">
+                    </div>
+                    <textarea data-key-placeholder="f_msg" placeholder="წერილი" rows="5"></textarea>
+
+                    <div class="captcha-row">
+                        <p data-key="captcha_text">ჩაწერეთ სურათზე მოცემული სიმბოლოები</p>
+                        <div class="captcha-input-group">
+                            <input type="text">
+                            <span class="captcha-code">jvli9</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="send-btn" data-key="f_send">გაგზავნა</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="aversi-categories">
+        <div class="categories-container">
+            <div class="cat-card">
+                <img src="aversi-shop.png" alt="" class="cat-icon">
+                <p data-key="cat_1">ავერსის ონლაინ აფთიაქი</p>
+            </div>
+            <div class="cat-card">
+                <img src="rational.png" alt="" class="cat-icon">
+                <p data-key="cat_2">შპს ავერსი რაციონალი </p>
+            </div>
+            <div class="cat-card">
+                <img src="clinic.png" alt="" class="cat-icon">
+                <p data-key="cat_3">ავერსის კლინიკა</p>
+            </div>
+            <div class="cat-card">
+                <img src="alpha.png" alt="" class="cat-icon">
+                <p data-key="cat_4">სადაზღვევო კომპანია ალფა</p>
+            </div>
+            <div class="cat-card">
+                <img src="medalpha.png" alt="" class="cat-icon">
+                <p data-key="cat_5">ჰოსპიტალური ქსელი მედალფა</p>
+            </div>
+            <div class="cat-card">
+                <img src="kirurgia.png" alt="" class="cat-icon">
+                <p data-key="cat_6">ქირურგიის ეროვნული ცენტრი</p>
+            </div>
+            <div class="cat-card">
+                <img src="kirurgia.png" alt="" class="cat-icon">
+                <p data-key="cat_7">ახალი სიცოცხლე</p>
+            </div>
+            <div class="cat-card">
+                <img src="bochorishvili.png" alt="" class="cat-icon">
+                <p data-key="cat_8">ვ.ბოჭორიშვილის კლინიკა</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <img src="logo_footer.png" alt="Aversi" class="footer-logo">
+                <p class="footer-text" data-key="footer_about_text">
+                    კომპანია „ავერსი“ 1994 წლის 14 ნოემბერს დაარსდა. დამფუძნებლის ინიციატივით, მის სახელწოდებად
+                    იმთავითვე იქნა შერჩეული ლათინური სიტყვა, რომლის მნიშვნელობაც ყველაზე უკეთ შეესატყვისებოდა კომპანიის
+                    განვითარების პრინციპს - უწყვეტ და თანაბარზომიერ განვითარებას, სპირალურ წინსვლას.
+                </p>
+                <a href="#" class="footer-btn" data-key="p_view_more_short">იხილეთ ვრცლად</a>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-title" data-key="work_hours_title">სამუშაო საათები</h3>
+                <div class="work-hours">
+                    <span data-key="mon_fri">ორშაბათი - პარასკევი:</span>
+                    <span>09:00 - 18:00</span>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#" data-key="foot_link_1">პერსონალურ მონაცემთა დამუშავება</a></li>
+                    <li><a href="#" data-key="foot_link_2">კონფიდენციალურობის ფორმა</a></li>
+                    <li><a href="#" data-key="foot_link_3">„მზა-ჩანაწერების“ (Cookies) პოლიტიკა</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-title" data-key="promo_section_title">აქციები</h3>
+                <div class="footer-promo-item">
+                    <img src="Screenshot_2.png" alt="">
+                    <p data-key="foot_promo_1">ავერსში ევროპული ხარისხის პრიმის კომპრესიულ წინდებს -20% ფასდაკლებით
+                        შეიძენთ</p>
+                </div>
+                <div class="footer-promo-item">
+                    <img src="Screenshot_1.png" alt="">
+                    <p data-key="foot_promo_2">ავერსში ბავშვთა კვების ასორტიმენტზე განსაკუთრებული ფასებით და
+                        შეთავაზებებით ისარგებლებთ</p>
+                </div>
+                <div class="footer-promo-item">
+                    <img src="Screenshot_6.png" alt="">
+                    <p data-key="foot_promo_3">ისარგებლეთ საუკეთესო შეთავაზებით ჩიკოს ეტლის ორეულსა და სამეულზე</p>
+                </div>
+                <a href="#" class="footer-btn" data-key="p_view_more_short">იხილეთ ვრცლად</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="top-ge-counter">
+                <img src="bolo.png" alt="TOP.GE" style="height:100px; padding-left: 240px;">
+            </div>
+            <p data-key="copy_text">©2018 ყველა უფლება დაცულია.</p>
+            <a href="#" class="scroll-up-btn">▲</a>
+        </div>
+    </footer>
+</body>
+
+</html>

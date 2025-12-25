@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <title>Aversi - Registration</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body class="reg-body">
+    <div class="reg-container">
+        <div class="reg-header">
+            <img src="https://www.aversi.ge/images/logo.png" alt="Aversi Logo">
+            <h2 data-key="reg_title">რეგისტრაცია</h2>
+        </div>
+
+        <form id="registrationForm" class="reg-form">
+            <div class="form-group">
+                <input type="email" id="email" data-key-placeholder="f_email" placeholder="ელ. ფოსტა *" required>
+                <span id="emailError" class="error-msg"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="username" data-key-placeholder="f_username" placeholder="მომხმარებლის სახელი *" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="password" id="password" data-key-placeholder="f_pass" placeholder="პაროლი *" required>
+                    <div id="passwordStrength" class="strength-meter">
+                        <span id="strengthText"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirmPassword" data-key-placeholder="f_confirm_pass" placeholder="დაადასტურეთ პაროლი *" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="text" id="country" data-key-placeholder="f_country" placeholder="ქვეყანა *" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="city" data-key-placeholder="f_city" placeholder="ქალაქი *" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="tel" id="mobile" data-key-placeholder="f_phone" placeholder="მობილურის ნომერი *" required>
+            </div>
+
+            <div class="form-group date-group">
+                <label data-key="reg_date">რეგისტრაციის თარიღი:</label>
+                <input type="date" id="regDate" readonly>
+            </div>
+
+            <button type="submit" class="reg-btn" data-key="nav_reg">რეგისტრაცია</button>
+            <a href="index.html" class="back-link" data-key="nav_home">მთავარ გვერდზე დაბრუნება</a>
+        </form>
+    </div>
+
+    <script src="script2.js"></script>
+    <script>
+        // Set current date automatically as per requirements
+        document.getElementById('regDate').valueAsDate = new Date();
+    </script>
+</body>
+</html>

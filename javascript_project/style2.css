@@ -1,0 +1,92 @@
+.reg-body {
+    background-color: #f34b4b; /* Aversi Red */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.reg-container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 500px;
+}
+
+.reg-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.reg-header img {
+    width: 180px;
+    margin-bottom: 10px;
+}
+
+.reg-header h2 {
+    color: #f34b4b;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.reg-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.reg-btn {
+    width: 100%;
+    background-color: #f34b4b;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.reg-btn:hover {
+    background-color: #d43636;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.strength-meter {
+    height: 5px;
+    margin-top: 5px;
+    border-radius: 2px;
+    font-size: 11px;
+}
+
+.error-msg {
+    color: #f34b4b;
+    font-size: 11px;
+}

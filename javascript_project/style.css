@@ -1,0 +1,669 @@
+/* --- 1. GLOBAL & RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+}
+
+/* --- 2. LAYOUT & SIDEBAR --- */
+.container {
+    display: block;
+    width: 100%;
+}
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    z-index: 1000;
+    background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url("Pharmacy.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar img { width: 220px; }
+.sidebar nav a { display: block; padding: 10px 0; color: #333; text-decoration: none; }
+.sidebar nav a.highlight { color: #d71920; font-weight: bold; }
+.sidebar-footer { margin-top: 40px; font-size: 14px; }
+
+/* Main content areas shifted to the right of the sidebar */
+main, .aversi-stats, .aversi-promos {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+}
+
+/* --- 3. HERO SLIDER --- */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.slide.active { opacity: 1; }
+.slide img { width: 100%; height: 100%; object-fit: cover; }
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(0,0,0,0.2);
+    color: white;
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+}
+.next { right: 0; }
+.prev { left: 0; }
+
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+.dot { width: 12px; height: 12px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer; }
+.dot.active { background: #ed1c24; width: 25px; border-radius: 10px; }
+
+/* --- 4. CONTENT GRID --- */
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 2fr;
+    gap: 15px;
+    padding: 20px;
+}
+
+.bigleft, .bigright {
+    border-radius: 12px;
+    height: 400px;
+    font-size: 22px;
+    font-weight: bold;
+    background-size: cover;
+}
+.bigleft { background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url("Pharmacy.jpg"); }
+.bigright { background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url("Aversi-Converted-01.png"); }
+.bigleft h3, .bigright h3 { padding: 30px; }
+
+.middle { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; height: 200px; }
+
+.small {
+    background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url("pexels-cottonbro-5723612.jpg");
+    background-size: cover;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    gap: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+.small img { height: 80px; }
+.content-grid input { width: 80%; padding: 10px; border-radius: 20px; border: 1px solid #ccc; }
+
+/* --- 5. STATISTICS --- */
+.aversi-stats { padding: 60px 20px; text-align: center; background: white; }
+.stats-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 50px; }
+.circle-ring {
+    width: 180px; height: 180px; border-radius: 50%; border: 10px solid #f0f0f0;
+    display: flex; justify-content: center; align-items: center; margin-bottom: 15px;
+}
+.circle-content {
+    width: 140px; height: 140px; border-radius: 50%; border: 2px solid #ed1c24;
+    display: flex; justify-content: center; align-items: center; background: white;
+}
+.circle-content img { width: 70px; }
+.stat-value { font-size: 28px; font-weight: bold; color: #333; }
+.promo-title { font-size: 40px; color: #ed1c24; font-weight: bold; margin-top: 30px; }
+
+/* --- 6. PROMO SLIDER (Symmetrical & Large) --- */
+.aversi-promos {
+    background: #fdfdfd;
+    padding: 60px 0;
+    text-align: center;
+    overflow: hidden;
+    padding-left: 180px;
+}
+
+.promo-outer-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 1400px;
+    margin-left: -15%; /* Your 15% shift to the left */
+    position: relative;
+}
+
+.promo-window {
+    width: 1240px; /* Fits 3 cards at 400px + gaps */
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+.promo-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease;
+}
+
+.promo-card {
+    min-width: 400px; /* 25% bigger cards */
+    max-width: 400px;
+    min-height: 450px;
+    background: white;
+    border: 1px solid #eee;
+    padding: 25px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.promo-card img { width: 100%; height: auto; margin-bottom: 15px; }
+.card-text { font-size: 14px; color: #555; margin-bottom: 20px; line-height: 1.5; }
+.card-link { color: #ed1c24; text-decoration: none; font-weight: bold; align-self: flex-end; }
+
+.nav-arrow {
+    background: #f0f0f0;
+    border: none;
+    color: #ccc;
+    font-size: 28px;
+    width: 45px;
+    height: 100px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-dot { display: inline-block; width: 10px; height: 10px; background: #f3c0c6; border-radius: 50%; margin: 0 5px; }
+.p-dot.active { background: #ed1c24; }
+.view-all-btn { background: #ed1c24; color: white; border: none; padding: 12px 40px; border-radius: 6px; cursor: pointer; margin-top: 20px; }
+
+/* --- CONTACT SECTION STYLES --- */
+.contact-section {
+    padding: 60px 40px;
+    background: #f9f9f9;
+    margin-left: 260px; /* Aligns with your sidebar layout */
+    width: calc(100% - 260px);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #ed1c24;
+    margin: 10px auto;
+}
+
+.contact-container {
+    display: flex;
+    gap: 40px; /* Increased gap for better breathing room */
+    max-width: 1400px; /* Increased from 1200px to accommodate wider map */
+    margin: 0 auto;
+}
+
+/* Map is now 25% wider than the form */
+.map-box {
+    flex: 1.25; /* Makes the map box 25% larger than a standard 1:1 ratio */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.map-box iframe {
+    width: 100%;
+    height: 450px;
+    display: block;
+}
+
+.contact-form-box {
+    flex: 0.75; /* Slightly narrower to balance the wider map */
+}
+
+.contact-form-box h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.contact-form textarea {
+    margin-bottom: 15px;
+    resize: none;
+}
+
+.captcha-row {
+    margin-bottom: 20px;
+}
+
+.captcha-row p {
+    font-size: 13px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.captcha-input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.captcha-input-group input {
+    width: 80px;
+}
+
+.captcha-code {
+    background: #ed1c24;
+    color: white;
+    padding: 5px 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 2px;
+    border-radius: 3px;
+}
+
+.send-btn {
+    background: #ed1c24;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* --- CATEGORY ONE-ROW STYLES (NO GAPS & 30% LARGER) --- */
+.aversi-categories {
+    padding: 40px 0; 
+    background: #fdfdfd;
+    margin-left: 260px; /* Sidebar offset */
+    width: calc(100% - 260px);
+}
+
+.categories-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); 
+    gap: 0px; 
+    /* 🔥 Increased to 1800px to fit the 30% size jump in one row */
+    max-width: 1800px; 
+    margin: 0 auto;
+    border-left: 1px solid #eee; /* Closing the border on the far left */
+}
+
+.cat-card {
+    background: #ffffff;
+    /* 🔥 Increased padding to 35px for a much larger vertical presence */
+    padding: 35px 15px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cat-card:hover {
+    background: #fcfcfc;
+    box-shadow: inset 0 -4px 0px #ed1c24; /* Added a subtle red bottom-accent on hover */
+}
+
+/* 🔥 Icon size increased to 80px (approx 30% larger than 62px) */
+.cat-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 18px;
+}
+
+.cat-card p {
+    /* 🔥 Font size increased for readability at larger scale */
+    font-size: 18px; 
+    color: #333;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+/* --- FOOTER STYLES --- */
+.main-footer {
+    background-color: #ed1c24; /* The signature Aversi Red */
+    color: white;
+    padding: 60px 0 20px 0;
+    margin-left: 260px; /* Sidebar offset */
+    width: calc(100% - 260px);
+    font-family: sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    max-width: 1300px;
+    margin: 0 auto;
+    gap: 50px;
+    padding: 0 40px;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-logo {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.footer-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.footer-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-btn:hover {
+    background: white;
+    color: #ed1c24;
+}
+
+/* Middle Column */
+.work-hours {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    margin-bottom: 30px;
+    border-bottom: 1px dashed rgba(255,255,255,0.5);
+    padding-bottom: 10px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a::before {
+    content: "•";
+    margin-right: 10px;
+}
+
+/* Right Column (Promos) */
+.footer-promo-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.footer-promo-item img {
+    width: 80px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.footer-promo-item p {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    margin-top: 50px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    position: relative;
+}
+
+.top-ge-counter img {
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.footer-bottom p {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.scroll-up-btn {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+/* --- SIDEBAR BOTTOM STYLES --- */
+.sidebar-bottom {
+     /* Pushes content to the very bottom of the sidebar */
+    padding-top: 10px;
+}
+
+/* Search Bar */
+.sidebar-search {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.sidebar-search input {
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+    outline: none;
+}
+
+.sidebar-search button {
+    background: #f5f5f5;
+    border: none;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* News Archive Link */
+.news-archive {
+    display: block;
+    color: #ed1c24; /* Aversi Red */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.sidebar-divider {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 15px 0;
+}
+
+/* Language Switcher */
+.lang-switcher {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.lang-switcher img {
+    width: 25px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/* Contact Details */
+.sidebar-contact {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.sidebar-contact p {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar-contact .icon {
+    color: #ed1c24;
+}
+
+/* Social Icons Grid */
+.social-icons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 icons per row */
+    gap: 5px;
+}
+
+.social-icons a {
+    background: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    background: #e0e0e0;
+}
+
+/* --- SIDEBAR BOTTOM STYLES (CENTERED & SMALLER) --- */
+
+/* Centers the flags in the middle of the sidebar */
+.lang-switcher {
+    display: flex;
+    justify-content: center; /* 🔥 Moves flags to the middle */
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.lang-switcher img {
+    width: 28px; /* Slightly larger for visibility */
+    height: auto;
+    cursor: pointer;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Contact Details centered to match flags */
+.sidebar-contact {
+    text-align: left;
+    padding-left: 10px;
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 🔥 Shrunk Social Icons */
+.social-icons {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 icons in one row for a smaller look */
+    gap: 4px;
+    padding: 0 5px;
+}
+
+.social-icons a {
+    background: #f2f2f2;
+    color: #444;
+    text-decoration: none;
+    height: 32px; /* 🔥 Reduced height (was 40px) */
+    font-size: 11px; /* 🔥 Smaller text/icons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.social-icons a:hover {
+    background: #e0e0e0;
+}
+
